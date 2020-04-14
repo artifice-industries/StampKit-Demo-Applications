@@ -1,10 +1,10 @@
 # StampKit Demo
 
 ## Server
-- Add and Remove timelines to the server.
-- Set a Password for each timeline.
+- Add and remove timelines to the server.
+- Set a password for each timeline.
 
 ## Client
-- Double Click on a timeline to connect to it.
-- Send an OSCMessage to the connected Timeline/Server by typing an [OSC Annotation](https://github.com/SammyTheHand/OSCKit/wiki/OSC-Annotation). (space formatted). 
+- Double click on a timeline to connect to it.
+- Send an OSCMessage to the connected timeline/server by typing an [OSC Annotation](https://github.com/SammyTheHand/OSCKit/wiki/OSC-Annotation). (space formatted). 
 e.g. /an/address/pattern 1 3.142 aString "a string with spaces" true false nil impulse
