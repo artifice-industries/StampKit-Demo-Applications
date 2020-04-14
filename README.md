@@ -1,8 +1,8 @@
 # StampKit Demo
 
 ## Server
-- Add and Remove Timelines to the Server.
-- Set a Password for each Timeline.
+- Add and Remove timelines to the server.
+- Set a Password for each timeline.
 
 ## Client
 - Double Click on a timeline to connect to it.
