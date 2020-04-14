@@ -5,6 +5,6 @@
 - Set a Password for each Timeline.
 
 ## Client
-- Double click to connect to a Servers Timeline.
-- Send an OSCMessage to the connected Timeline/Server by type an OSC Annotation (Space formatting). 
+- Double Click on a timeline to connect to it.
+- Send an OSCMessage to the connected Timeline/Server by typing an OSC Annotation (space formatted). 
 e.g. /an/address/pattern 1 3.142 aString "a string with spaces" true false nil impulse
