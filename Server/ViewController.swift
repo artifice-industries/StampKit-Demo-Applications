@@ -103,7 +103,8 @@ extension ViewController: NSTextFieldDelegate {
 }
 
 extension ViewController: SKServerDelegate {
-    func statusCode(for client: SKClientFacade, sendingMessage message: OSCMessage, toServer server: SKServer, forTimelines timelines: [SKTimelineDescription]) -> SKResponseStatusCode {
+    
+    func responseStatusCode(for note: String, withColour colour: SKNoteColour, fromClient client: SKClientFacade, toServer server: SKServer, forTimelines: [SKTimelineDescription]) -> SKResponseStatusCode {
         return SKResponseStatusCode.created
     }
     
