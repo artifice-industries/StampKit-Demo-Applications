@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D99CE0F62456FF21000E7AC3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D99CE0F52456FF21000E7AC3 /* README.md */; };
 		D9E36E312445ECC600E89830 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E36E302445ECC600E89830 /* AppDelegate.swift */; };
 		D9E36E332445ECC600E89830 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E36E322445ECC600E89830 /* ViewController.swift */; };
 		D9E36E352445ECC800E89830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E36E342445ECC800E89830 /* Assets.xcassets */; };
@@ -17,13 +18,12 @@
 		D9E36E942445F16600E89830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9E36E922445F16600E89830 /* Main.storyboard */; };
 		D9E36E9C2445F19600E89830 /* PasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9E36E9A2445F19600E89830 /* PasswordViewController.xib */; };
 		D9E36E9D2445F19600E89830 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E36E9B2445F19600E89830 /* PasswordViewController.swift */; };
-		D9E36EA72445F5ED00E89830 /* OSCKit in Frameworks */ = {isa = PBXBuildFile; productRef = D9E36EA62445F5ED00E89830 /* OSCKit */; };
 		D9E36EA92445F5FA00E89830 /* StampKit in Frameworks */ = {isa = PBXBuildFile; productRef = D9E36EA82445F5FA00E89830 /* StampKit */; };
 		D9E36EAB2445F60100E89830 /* StampKit in Frameworks */ = {isa = PBXBuildFile; productRef = D9E36EAA2445F60100E89830 /* StampKit */; };
-		D9E36EAD2445F60D00E89830 /* OSCKit in Frameworks */ = {isa = PBXBuildFile; productRef = D9E36EAC2445F60D00E89830 /* OSCKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D99CE0F52456FF21000E7AC3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D9E36E2E2445ECC600E89830 /* Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Server.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E36E302445ECC600E89830 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E36E322445ECC600E89830 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9E36EA72445F5ED00E89830 /* OSCKit in Frameworks */,
 				D9E36EA92445F5FA00E89830 /* StampKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,7 +56,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9E36EAB2445F60100E89830 /* StampKit in Frameworks */,
-				D9E36EAD2445F60D00E89830 /* OSCKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +93,7 @@
 		D9FAABD5242E25C400683193 = {
 			isa = PBXGroup;
 			children = (
+				D99CE0F52456FF21000E7AC3 /* README.md */,
 				D9E36E2F2445ECC600E89830 /* Server */,
 				D9E36E8B2445F16500E89830 /* Client */,
 				D9FAABDF242E25C400683193 /* Products */,
@@ -135,7 +134,6 @@
 			);
 			name = Server;
 			packageProductDependencies = (
-				D9E36EA62445F5ED00E89830 /* OSCKit */,
 				D9E36EA82445F5FA00E89830 /* StampKit */,
 			);
 			productName = Server;
@@ -157,7 +155,6 @@
 			name = Client;
 			packageProductDependencies = (
 				D9E36EAA2445F60100E89830 /* StampKit */,
-				D9E36EAC2445F60D00E89830 /* OSCKit */,
 			);
 			productName = Client;
 			productReference = D9E36E8A2445F16500E89830 /* Client.app */;
@@ -192,7 +189,6 @@
 			mainGroup = D9FAABD5242E25C400683193;
 			packageReferences = (
 				D9E36EA22445F56100E89830 /* XCRemoteSwiftPackageReference "StampKit" */,
-				D9E36EA52445F5ED00E89830 /* XCRemoteSwiftPackageReference "OSCKit" */,
 			);
 			productRefGroup = D9FAABDF242E25C400683193 /* Products */;
 			projectDirPath = "";
@@ -209,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D99CE0F62456FF21000E7AC3 /* README.md in Resources */,
 				D9E36E352445ECC800E89830 /* Assets.xcassets in Resources */,
 				D9E36E382445ECC800E89830 /* Main.storyboard in Resources */,
 			);
@@ -504,22 +501,9 @@
 				kind = branch;
 			};
 		};
-		D9E36EA52445F5ED00E89830 /* XCRemoteSwiftPackageReference "OSCKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:SammyTheHand/OSCKit.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D9E36EA62445F5ED00E89830 /* OSCKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D9E36EA52445F5ED00E89830 /* XCRemoteSwiftPackageReference "OSCKit" */;
-			productName = OSCKit;
-		};
 		D9E36EA82445F5FA00E89830 /* StampKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D9E36EA22445F56100E89830 /* XCRemoteSwiftPackageReference "StampKit" */;
@@ -529,11 +513,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D9E36EA22445F56100E89830 /* XCRemoteSwiftPackageReference "StampKit" */;
 			productName = StampKit;
-		};
-		D9E36EAC2445F60D00E89830 /* OSCKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D9E36EA52445F5ED00E89830 /* XCRemoteSwiftPackageReference "OSCKit" */;
-			productName = OSCKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
