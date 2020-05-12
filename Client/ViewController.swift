@@ -65,12 +65,10 @@ class ViewController: NSViewController {
     
     @IBAction func note(_ sender: Any) {
         guard let connectedTimeline = timeline, !textField.stringValue.isEmpty else { return }
-        connectedTimeline.request(note: textField.stringValue, withColour: .green, completionHandler: { description in
-            print("Received:")
-            print("Note: \(description.note)")
-            print("Colour: \(description.colour)")
-            print("Code: \(description.code)")
-        })
+        if OSCAnnotation.isValid(annotation: textField.stringValue, with: .spaces) {
+            guard let message = OSCAnnotation.oscMessage(for: textField.stringValue, with: .spaces) else { return }
+            connectedTimeline.send(message: message)
+        }
         textField.stringValue = ""
     }
     
@@ -88,7 +86,7 @@ extension ViewController: NSTableViewDataSource {
                 cell.textField?.stringValue = timeline.name
                 cell.textField?.isEditable = false
             } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier("uuid") {
-                cell.textField?.stringValue = timeline.uniqueID
+                cell.textField?.stringValue = timeline.uuid.uuidString
                 cell.textField?.isEditable = false
             } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier("connection") {
                 cell.textField?.stringValue = timeline.connected ? "Connected" : ""

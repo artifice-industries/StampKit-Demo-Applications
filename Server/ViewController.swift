@@ -16,20 +16,15 @@ class ViewController: NSViewController {
     
     let server = SKServer()
     var timelineCount: Int = 1
+    var addressSpace: Set<OSCAddressMethod> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        registerAddressSpace()
         server.delegate = self
         server.start()
-        // Do any additional setup after loading the view.
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
     }
     
     func updateView() {
@@ -49,10 +44,24 @@ class ViewController: NSViewController {
             server.remove(timeline: timeline)
         }
     }
+
+    func addMethod(_ method: OSCAddressMethod) {
+        addressSpace.insert(method)
+    }
+
+    func annotation(_ message: OSCMessage) -> () {
+        print("Message: \(OSCAnnotation.annotation(for: message, with: .spaces, andType: true))")
+    }
+
+    func registerAddressSpace() {
+        addMethod(OSCAddressMethod(with: "/a/b/*/d/*", andCompletionHandler: annotation(_:)))
+        addMethod(OSCAddressMethod(with: "/a/b/*/d/*/f", andCompletionHandler: annotation(_:)))
+        addMethod(OSCAddressMethod(with: "/a/b/*/d", andCompletionHandler: annotation(_:)))
+    }
     
 }
 
-extension ViewController: NSTableViewDataSource {
+extension ViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("cell"), owner: self) as! NSTableCellView
@@ -74,10 +83,6 @@ extension ViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return server.timelines.count
     }
-    
-}
-
-extension ViewController: NSTableViewDelegate {
     
 }
 
@@ -103,17 +108,18 @@ extension ViewController: NSTextFieldDelegate {
 }
 
 extension ViewController: SKServerDelegate {
-    
-    func responseStatusCode(for note: String, withColour colour: SKNoteColour, fromClient client: SKClientFacade, toServer server: SKServer, forTimeline timeline: SKTimelineDescription) -> SKResponseStatusCode {
-        return SKResponseStatusCode.created
-    }
-    
+
     func server(_: SKServer, didReceiveMessage message: OSCMessage, forTimelines timelines: [SKTimelineDescription]) {
         print("Incoming Message for timelines:")
         for timeline in timelines {
-            print(timeline.name)
+            print("- \(timeline.name)")
         }
-        print("Message: \(OSCAnnotation.annotation(for: message, with: .spaces, andType: true))")
+        let matchedAddresses = OSCAddressMethod.matches(for: message.addressPattern, inAddressSpace: addressSpace)
+        if matchedAddresses.isEmpty {
+            print("The message \"\(OSCAnnotation.annotation(for: message, with: .spaces, andType: true))\" is not a method within the address space")
+        } else {
+            matchedAddresses.forEach({ $0.completion(message) })
+        }
     }
     
     func server(_: SKServer, didUpdateTimelines: [SKTimelineDescription]) {
